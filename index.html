@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="./css/styles.css"/>
+    <title>Валидация формы</title>
+</head>
+
+<body>
+<div class="container">
+    <form id="form" method="post" action="/send.php" class="form">
+        <h2>Регистрация</h2>
+        <label class="form-control">
+            <span>Имя</span>
+            <input data-req="Имя обязательное" type="text" name="username" placeholder="Введите здесь Ваше имя"/>
+        </label>
+        <label class="form-control">
+            <span>Почта</span>
+            <input
+                    data-email="Проверьте правильность email"
+                    type="text" name="email"
+                    placeholder="Введите Вашу почту"
+            />
+        </label>
+        <label class="form-control">
+            <span>Пароль</span>
+            <input
+                    data-req="Пароль обязателен"
+                    data-password="Проверьте правильность пароля"
+                    data-min_length="5"
+                    data-min_message="Минимальная длинна N символов"
+                    type="password" name="password"
+                    placeholder="Введите Ваш пароль"
+            />
+        </label>
+        <label class="form-control">
+            <span>Подтверждение пароля</span>
+            <input
+                    data-req="Пароль обязателен"
+                    data-password="Проверьте правильность пароля"
+                    data-min_length="5"
+                    data-min_message="Минимальная длинна N символов"
+                    type="password" name="password2"
+                    placeholder="Введите пароль снова"
+            />
+        </label>
+        <label class="form-control form-control--line">
+            <span>Я согласен с условиями</span>
+            <input name="agree" data-req="Обязательно согласитесь" type="checkbox"/>
+        </label>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+</div>
+<script src="./js/script.js"></script>
+</body>
+
+</html>
