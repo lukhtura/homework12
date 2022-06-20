@@ -2,6 +2,7 @@ function FormValidate(form) {
     const _elements = form.elements;
     const _parentItemClass = 'form-control';
     const _errorWrapperClass = 'error';
+    const _errorItemClass = 'error_item';
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -30,13 +31,15 @@ function FormValidate(form) {
         const parent = element.closest(`.${_parentItemClass}`);
         if (parent.classList.contains(_errorWrapperClass) === false) {
             parent.classList.add(_errorWrapperClass);
-            parent.insertAdjacentHTML('beforeend', `<small>${message}</small>`);
+            parent.insertAdjacentHTML('beforeend', `<small class:"${_errorItemClass}">${message}</small>`);
         }
     }
     this.correctTemplate = function (element) {
         const parent = element.closest(`.${_parentItemClass}`);
         if (parent.classList.contains(_errorWrapperClass) === true) {
             parent.classList.remove(_errorWrapperClass);
+            // строка ниже должна удалять тег из html, но она этого не делает(выводит null в консоли)
+            parent.querySelector(`.${_errorItemClass}`);
         };
     };
 }
