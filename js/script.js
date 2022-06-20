@@ -39,7 +39,7 @@ function FormValidate(form) {
         if (parent.classList.contains(_errorWrapperClass) === true) {
             parent.classList.remove(_errorWrapperClass);
             // строка ниже должна удалять тег из html, но она этого не делает(выводит null в консоли)
-            parent.querySelector(`.${_errorItemClass}`);
+            parent.querySelector(`.${_errorItemClass}`).remove();
         };
     };
 }
